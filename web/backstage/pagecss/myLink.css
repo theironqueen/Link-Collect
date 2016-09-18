@@ -1,0 +1,12 @@
+.link-address{
+	width: 100%;
+	max-width: 300px;
+}
+
+
+#link-show div.form-group:nth-child(3) div.form-group-content{
+	line-height: 150%;
+}
+#link-show div.form-group:nth-child(3)>label.control-label{
+	line-height: 20px;
+}

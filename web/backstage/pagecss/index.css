@@ -1,0 +1,43 @@
+#content{
+	overflow-y: auto;
+}
+#content>div.row{
+	height: auto;
+}
+#content>div.row>div.box{
+	height: 300px;
+}
+
+/* start	link-rank ul style*/
+.link-rank{
+	list-style-type: none;
+	width: 100%;
+	padding:0px;
+	margin:0px;
+}
+.link-rank li{
+	height: 22px;
+	line-height: 22px;
+	font-size: 16px;
+}
+.link-rank li span{
+	display: inline-block;
+	overflow: hidden;
+	float: left;
+}
+.link-rank li span.rank-number{
+	width: 10%;
+	text-align: right;
+}
+.link-rank li span.click-number{
+	width: 20%;
+	float: right;
+}
+.link-rank li a,.link-rank li span.link-title{
+	width: 65%;
+	overflow: hidden;
+	float: left;
+	padding-left: 5%;
+	height: 100%;
+}
+/* end	link-rank ul style*/
