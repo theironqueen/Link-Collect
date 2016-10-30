@@ -38,7 +38,6 @@ var MyPageData = (function(){
 		"1":"标签"
 	};
 	var INDEX_TAB_DATA;
-	var tabParentIdFlag;
 	return {
 		getAddressData: function(name){
 			var result = "";
@@ -77,14 +76,6 @@ var MyPageData = (function(){
 		},
 		getIndexTabData:function(){
 			return INDEX_TAB_DATA;
-		},
-		parentIdFlag:{
-			set:function(v){
-				tabParentIdFlag = v;
-			},
-			get:function(){
-				return tabParentIdFlag;
-			}
 		}
 
 	};

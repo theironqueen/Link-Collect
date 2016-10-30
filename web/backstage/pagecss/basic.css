@@ -41,27 +41,27 @@ table.datatable a.btn{
 }
 
 /*		begin modal style	*/
-.modal div.form-group{
-	width: 100%;
-	min-height: 40px;
+/* .modal div.form-group{
+  width: 100%;
+  min-height: 40px;
 }
 .modal div.form-group label.control-label{
-	width: 20%;
-	text-align: right;
-	float: left;
-	color: #808080;
-	height: 40px;
-	line-height: 40px;
+  width: 20%;
+  text-align: right;
+  float: left;
+  color: #808080;
+  height: 40px;
+  line-height: 40px;
 }
 .modal div.form-group div.form-group-content{
-	width: 60%;
-	display: inline-block;
-	position: relative;
-	line-height: 40px;
+  width: 60%;
+  display: inline-block;
+  position: relative;
+  line-height: 40px;
 }
 .modal div.form-group div.form-group-content input{
-	width: 100%;
-}
+  width: 100%;
+} */
 /*		end modal style	*/
 
 /****** BEGIN PAGE LOADER *******/

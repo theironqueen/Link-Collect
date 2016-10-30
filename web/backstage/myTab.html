@@ -44,8 +44,9 @@
     <link rel="stylesheet" type="text/css" href="css/dataTable/data-table.css">
 
     <!--************** page css start****************-->
-    <link href="pagecss/basic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bower_components/modalFormTool/modalFormTool.css">
 
+    <link href="pagecss/basic.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="pagecss/myTab.css">
     <!--************** page css end****************-->
 
@@ -58,7 +59,7 @@
     <![endif]-->
 
     <!-- The fav icon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/logo2.ico">
 
 </head>
 
@@ -159,40 +160,12 @@
                     <h3>详情</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="control-label" for="">标签id:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">标签名:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">创建时间:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">父标签id:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">父标签名:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">包含链接数:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">包含标签数:</label>
-                            <div class="form-group-content"></div>
-                        </div>
+                    <form id="tab-show-form" role="form" class="form-horizontal modalformtool">
+
                     </form>
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">关闭</a>
-                    <!-- <a href="#" class="btn btn-primary" data-dismiss="modal">保存</a> -->
                 </div>
             </div>
         </div>
@@ -210,41 +183,7 @@
                     <h3>编辑</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="control-label" for="">标签id:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label class="control-label" for="">标签名:</label>
-                            <div class="form-group-content">
-                                <input type="text" class="form-control" tabindex="1">
-                                <span class="glyphicon form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">创建时间:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label class="control-label" for="">父标签id:</label>
-                            <div class="form-group-content">
-                                <input type="text" class="form-control" tabindex="2">
-                                <span class="glyphicon form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">父标签名:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">包含链接数:</label>
-                            <div class="form-group-content"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">包含标签数:</label>
-                            <div class="form-group-content"></div>
-                        </div>
+                    <form id="tab-edit-form" role="form" class="form-horizontal modalformtool">
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -309,6 +248,8 @@
 <script src="js/charisma.js"></script>
 
 <!--************** page javascript start****************-->
+<script type="text/javascript" src="bower_components/modalFormTool/modalFormTool.js"></script>
+
 <script type="text/javascript" src="pagejs/data.js"></script>
 <script type="text/javascript" src="pagejs/tool.js"></script>
 <script type="text/javascript" src="pagejs/config.js"></script>

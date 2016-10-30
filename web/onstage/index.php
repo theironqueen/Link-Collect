@@ -28,8 +28,8 @@
     
     <section id="page-header">
       <header>
-        <a id="logo" href="index.html"><img src="./img/logo.png" alt="logo"><span>Link Collect</span></a>
-        <a id="admin" href="../backstage/index.php"><i class="glyphicon glyphicon-cog"></i>进入后台</a>
+        <a id="logo" href="index.php"><img src="./img/logo.png" alt="logo"><span>Link Collect</span></a>
+        <a id="admin" href="../backstage/index.html"><i class="glyphicon glyphicon-cog"></i>进入后台</a>
       </header>
     </section>
     <section id="page-body">

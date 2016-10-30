@@ -7,7 +7,52 @@ $(document).ready(function(){
 	//console.log(tableParam);
 	$("#link-table").DataTable(tableParam);
 
+	$("#link-show-form").modalFormTool('create',{
+		'formContents':[
+			{'type':'oneLineText', 'label':'链接id:'},
+			{'type':'oneLineText', 'label':'链接名:'},
+			{'type':'multiLineText', 'label':'链接地址:'},
+			{'type':'oneLineText', 'label':'所属标签id:'},
+			{'type':'oneLineText', 'label':'所属标签名:'},
+			{'type':'oneLineText', 'label':'链接创建时间:'},
+			{'type':'oneLineText', 'label':'链接点击次数:'}
+		]
+	});
 
+	$("#link-edit-form").modalFormTool('create',{
+		'hasFeedback':true,
+		'formContents':[
+			{'type':'oneLineText', 'label':'链接id:'},
+			{'type':'oneLineInput', 'label':'链接名:', params:{'tabindex':1}, 'helpMessage':{'error':'链接名不能为空'}},
+			{'type':'multiLineInput', 'label':'链接地址:', params:{'tabindex':2}, 'helpMessage':{'error':'链接地址不能为空'}},
+			{'type':'oneLineText', 'label':'所属标签id:'},
+			{'type':'oneLineText', 'label':'所属标签名:'},
+			{'type':'oneLineText', 'label':'链接创建时间:'},
+			{'type':'oneLineText', 'label':'链接点击次数:'}
+		],
+		overwriteFunctions:[
+			{
+				'index':1,
+				'verifyFunction':function(inputString){
+					var result = Tool.inputCheck(inputString,"void");
+					if (!result)
+						return 'success';
+					else
+						return 'error';
+				}
+			},
+			{
+				'index':2,
+				'verifyFunction':function(inputString){
+					var result = Tool.inputCheck(inputString,"void");
+					if (!result)
+						return 'success';
+					else
+						return 'error';
+				}
+			}
+		]
+	});
 	//元素绑定
 	//链接显示弹框
 	$(document).on("click",".link-show",function(){
@@ -16,18 +61,21 @@ $(document).ready(function(){
 		var $dialog = $("#link-show");
 		//获取内容
 		$data = $("#link-table").DataTable().row($this.parents("tr")).data();
-		var $form = $("#link-show").find("form");
-		var $form_items = $form.find("div.form-group");
+
 		//内容写入
-		$form_items.eq(0).find('div.form-group-content').html($data.link_id);
-		$form_items.eq(1).find('div.form-group-content').html($data.link_name);
-		$form_items.eq(2).find('div.form-group-content').html($data.link_address);
-		$form_items.eq(3).find('div.form-group-content').html($data.tab_id);
-		$form_items.eq(4).find('div.form-group-content').html($data.tab_name);
-		$form_items.eq(5).find('div.form-group-content').html($data.link_time);
-		$form_items.eq(6).find('div.form-group-content').html($data.link_click);
+		var values = {
+			0:$data.link_id,
+			1:$data.link_name,
+			2:$data.link_address,
+			3:$data.tab_id,
+			4:$data.tab_name,
+			5:$data.link_time,
+			6:$data.link_click
+		};
+
+		$("#link-show-form").modalFormTool('setValues', values);
 		$dialog.modal("show");
-		//Tool.alertMessage("LC_notify_box","error","error","this is a error");
+
 		return false;
 
 	});
@@ -38,64 +86,40 @@ $(document).ready(function(){
 		var $dialog = $("#link-edit");
 		//获取内容
 		$data = $("#link-table").DataTable().row($this.parents("tr")).data();
-		var $form = $("#link-edit").find("form");
-		var $form_items = $form.find("div.form-group");
-		//内容写入
-		$form_items.eq(0).find('div.form-group-content').html($data.link_id);
-		$form_items.eq(1).find('input').val($data.link_name);
-		$form_items.eq(2).find('input').val($data.link_address);
-		$form_items.eq(3).find('div.form-group-content').html($data.tab_id);
-		$form_items.eq(4).find('div.form-group-content').html($data.tab_name);
-		$form_items.eq(5).find('div.form-group-content').html($data.link_time);
-		$form_items.eq(6).find('div.form-group-content').html($data.link_click);
 
+		//内容写入
+		var values = {
+			0:$data.link_id,
+			1:$data.link_name,
+			2:$data.link_address,
+			3:$data.tab_id,
+			4:$data.tab_name,
+			5:$data.link_time,
+			6:$data.link_click
+		};
+		$("#link-edit-form").modalFormTool('setValues', values);
+		$("#link-edit-form").modalFormTool('setFeedbackStatus', {1:'default',2:'default'});
 		var index = $("#link-table").DataTable().row($this.parents("tr")).index();
 		$("#link-edit div.modal-footer a").eq(1).attr("title",index);
 		$dialog.modal("show");
 		return false;
-	});
-	$("#link-edit").on("focus","input.form-control",function(){
-		Tool.inputFeedbackShow($(this),"");
-	});
-	//链接名判断
-	$("#link-edit").find("form").find("div.form-group").eq(1).find("input").blur(function(event) {
-		var link_name = $(this).val();
-		link_name = $.trim(link_name);
-		if(Tool.inputCheck(link_name,"void")){
-			Tool.inputFeedbackShow($(this),"error");
-		}
-	});
-	//链接地址判断
-	$("#link-edit form div.form-group").eq(2).find("input").blur(function(event) {
-		var link_address = $(this).val();
-		link_address = $.trim(link_address);
-		if(Tool.inputCheck(link_address,"void")){
-			Tool.inputFeedbackShow($(this),"error");
-		}
 	});
 
 	//链接编辑保存点击事件
 	$("#link-edit div.modal-footer a").eq(1).unbind("click").bind("click",function(){
 		console.log("save");
 		var $dialog = $("#link-edit");
-		var $form = $("#link-edit").find("form");
-		var $form_items = $form.find("div.form-group");
-
+		var values = $("#link-edit-form").modalFormTool('getValues');
 		var index = $(this).attr("title");
 		var $data = $("#link-table").DataTable().row(index).data();
 
-		var link_name = $form_items.eq(1).find('input').val();
-		var link_address = $form_items.eq(2).find('input').val();
+		var link_name = values[1];
+		var link_address = values[2];
 		link_name = $.trim(link_name);
 		link_address = $.trim(link_address);
-		var is_right = true;
 		//判断 链接名和地址不为空
-		if(Tool.inputCheck(link_name,"void")){
-			is_right = false;
-		}
-		if(Tool.inputCheck(link_address,"void")){
-			is_right = false;
-		}
+		var is_right = $("#link-edit-form").modalFormTool('getVerifyResult');
+
 		if(is_right){
 			//发送信息
 			//发送到服务器的信息

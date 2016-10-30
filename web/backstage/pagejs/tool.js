@@ -8,7 +8,7 @@ var Tool = (function(){
 			serverSide:true,
 			processing:true,
 			ordering:false,
-			pageLength:5,
+			pageLength:10,
 			language:{},
 			ajax:{},
 			columns:[],

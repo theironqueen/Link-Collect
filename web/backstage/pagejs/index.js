@@ -127,7 +127,7 @@ $(document).ready(function(){
 	function singleRankCreate(data){
 		var html =  "<li>"
 	                    +"<span class='rank-number'>"+data.rank_number+"</span>"
-	                    +"<a href='"+data.link_address+"' title='"+data.link_name+"'>"+data.link_name+"</a>"
+	                    +"<a href='"+data.link_address+"' title='"+data.link_name+"' target='_blank'>"+data.link_name+"</a>"
 	                    +"<span class='click-number'>"+data.link_click+"</span>"
 	                + "</li>";
 	    return html;

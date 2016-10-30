@@ -44,6 +44,7 @@
     <link rel="stylesheet" type="text/css" href="css/dataTable/data-table.css">
 
     <!--************** page css start****************-->
+    <link rel="stylesheet" type="text/css" href="bower_components/modalFormTool/modalFormTool.css">
     <link href="pagecss/basic.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="pagecss/myRecord.css">
@@ -58,7 +59,7 @@
     <![endif]-->
 
     <!-- The fav icon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/logo2.ico">
 
 </head>
 
@@ -158,8 +159,8 @@
                     <h3>详情</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
+                    <form id="record-show-form" class="form-horizontal modalformtool" role="form">
+                        <!-- <div class="form-group">
                             <label class="control-label" for="">操作id:</label>
                             <div class="form-group-content"></div>
                         </div>
@@ -178,12 +179,11 @@
                         <div class="form-group">
                             <label class="control-label" for="">操作内容:</label>
                             <div class="form-group-content word-wrap"></div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">关闭</a>
-                    <!-- <a href="#" class="btn btn-primary" data-dismiss="modal">保存</a> -->
                 </div>
             </div>
         </div>
@@ -221,6 +221,8 @@
 <script src="js/charisma.js"></script>
 
 <!--************** page javascript start****************-->
+<script type="text/javascript" src="bower_components/modalFormTool/modalFormTool.js"></script>
+
 <script type="text/javascript" src="pagejs/data.js"></script>
 <script type="text/javascript" src="pagejs/tool.js"></script>
 <script type="text/javascript" src="pagejs/config.js"></script>

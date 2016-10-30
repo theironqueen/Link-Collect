@@ -4,13 +4,6 @@
 }
 
 
-#record-show div.form-group:nth-child(5) div.form-group-content{
-	line-height: 150%;
-}
-#record-show div.form-group:nth-child(5)>label.control-label{
-	line-height: 20px;
-}
-
 #record-table_wrapper .search-box{
 	width: 550px;
 }

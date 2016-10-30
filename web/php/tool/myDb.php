@@ -6,9 +6,9 @@ class MyDb{
 	private $dsn,$user,$password;
 
 	public function __construct(){
-		$this->dsn = 'mysql:dbname=yourdatabase;host=localhost';
-		$this->user = "username";
-		$this->password = "password";
+		$this->dsn = 'mysql:dbname=mypage2;host=localhost';
+		$this->user = "tuzi";
+		$this->password = "youwandetuzi";
 	}
 	public function connect(){
 		if(empty($this->pdo)){
@@ -28,5 +28,23 @@ class MyDb{
 			return $this->pdo;
 		}		
 	}
+	// public function close(){
+	// 	if(!empty($this->pdo)){
+	// 		$this->pdo->close();
+	// 		$this->pdo = null;
+	// 		echo "pdo close is null"."\r\n";
+	// 	}
+	// }
 }
+// $db = new MyDb();
+// $my = $db->connect();
+// $stmt = $my->prepare("insert into tab (tab_name,tab_parent_id,tab_time) values (?,?,?)");
+// $stmt->bind_param('sis',$name,$id,$time);
+// $name = "123";
+// $id = null;
+// $time = "1999-11-11 19:55:39";
+// $stmt->execute();
+// echo $stmt->affected_rows;
+// $stmt->close();
+// $my->close();
 ?>

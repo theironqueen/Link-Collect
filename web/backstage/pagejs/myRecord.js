@@ -7,22 +7,33 @@ $(document).ready(function(){
 	//console.log(tableParam);
 	$("#record-table").DataTable(tableParam);
 
+	$("#record-show-form").modalFormTool('create',{
+		'formContents':[
+			{'type':'oneLineText', 'label':'操作id:'},
+			{'type':'oneLineText', 'label':'操作时间:'},
+			{'type':'oneLineText', 'label':'操作类型:'},
+			{'type':'oneLineText', 'label':'操作对象:'},
+			{'type':'multiLineText', 'label':'操作内容:'}
+		]
+	});
+
 	//标签显示
 	$(document).on("click",".record-show",function(){
 		var $this = $(this);
 		var $dialog = $("#record-show");
 		//获取内容
 		$data = $("#record-table").DataTable().row($this.parents("tr")).data();
-		var $form = $("#record-show").find("form");
-		var $form_items = $form.find("div.form-group");
+		var values = {
+			0:$data.record_id,
+			1:$data.record_time,
+			2:MyPageData.getRecordData.getType($data.record_type),
+			3:MyPageData.getRecordData.getObject($data.record_object),
+			4:$data.record_memo
+		}
 		//内容写入
-		$form_items.eq(0).find('div.form-group-content').html($data.record_id);
-		$form_items.eq(1).find('div.form-group-content').html($data.record_time);
-		$form_items.eq(2).find('div.form-group-content').html(MyPageData.getRecordData.getType($data.record_type));
-		$form_items.eq(3).find('div.form-group-content').html(MyPageData.getRecordData.getObject($data.record_object));
-		$form_items.eq(4).find('div.form-group-content').html($data.record_memo);
+		$("#record-show-form").modalFormTool('setValues', values);
+		
 		$dialog.modal("show");
-		//Tool.alertMessage("LC_notify_box","error","error","this is a error");
 		return false;
 	});
 
