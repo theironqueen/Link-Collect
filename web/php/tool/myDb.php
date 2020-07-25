@@ -8,7 +8,7 @@ class MyDb{
 	public function __construct(){
 		$this->dsn = 'mysql:dbname=mypage2;host=localhost';
 		$this->user = "tuzi";
-		$this->password = "youwandetuzi";
+		$this->password = "";
 	}
 	public function connect(){
 		if(empty($this->pdo)){
